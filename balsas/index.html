@@ -7,10 +7,16 @@
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:'Jost',sans-serif;min-height:100vh;color:#fff;background-color:#005864;
-background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160' viewBox='0 0 160 160'%3E%3Cg fill='none' stroke='%23f2d48a' stroke-opacity='.16' stroke-width='2' stroke-linejoin='round'%3E%3Cpath d='M40 18l6 14 15 1-11 10 4 15-14-8-14 8 4-15-11-10 15-1z'/%3E%3Cpath d='M100 110c10-8 20-8 30 0s20 8 30 0M90 125c10-8 20-8 30 0s20 8 30 0'/%3E%3Cpath d='M120 40a14 14 0 0 1 0 22a14 14 0 0 1 0-22zM113 51h14'/%3E%3Cpath d='M20 110c8 0 14 6 14 14s-6 14-14 14'/%3E%3C/g%3E%3C/svg%3E"),radial-gradient(120% 70% at 50% 0%,#0a7482,#005864 55%,#003b44);
-background-size:160px 160px,cover;background-attachment:fixed;display:flex;justify-content:center;padding:44px 18px calc(40px + env(safe-area-inset-bottom))}
-main{width:100%;max-width:460px;text-align:center}
-.av{width:132px;height:132px;border-radius:50%;margin:0 auto;background:radial-gradient(circle at 30% 25%,#0a7482,#004a55);border:3px solid #e0b04a;box-shadow:0 10px 30px rgba(0,0,0,.25);display:grid;place-items:center;overflow:hidden;animation:pop .7s ease-out both}
+background-image:linear-gradient(180deg,#005864 0%,#005864 40%,#003f48 100%);
+display:flex;flex-direction:column;align-items:center;padding:0 0 calc(40px + env(safe-area-inset-bottom))}
+body::before{content:"";position:fixed;inset:-20px;background:url(../mark-tile.webp) repeat;background-size:200px 200px;opacity:.13;filter:blur(1.6px);pointer-events:none;z-index:0}
+main{width:100%;max-width:460px;padding:0 18px;text-align:center;position:relative;z-index:1;margin-top:-74px}
+.hero{position:relative;width:100%;max-width:520px;height:min(52vh,460px);overflow:hidden;z-index:1}
+.hero img{width:100%;height:100%;object-fit:cover;object-position:50% 22%;animation:zoom 14s ease-out both}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,88,100,0) 45%,rgba(0,88,100,.6) 78%,#005864 100%)}
+@keyframes zoom{from{transform:scale(1.08)}to{transform:scale(1)}}
+@media(min-width:521px){.hero{border-radius:0 0 28px 28px;margin-top:0}}
+.av{width:118px;height:118px;border-radius:50%;margin:0 auto;background:radial-gradient(circle at 30% 25%,#0a7482,#004a55);border:3px solid #e0b04a;box-shadow:0 10px 30px rgba(0,0,0,.25);display:grid;place-items:center;overflow:hidden;animation:pop .7s ease-out both}
 .av img{width:78%;height:auto}
 h1{font-family:'Jost';font-weight:500;font-size:22px;margin-top:16px;letter-spacing:.02em}
 .tag{font-size:11px;letter-spacing:.42em;color:#f2d48a;margin-top:4px}
@@ -18,10 +24,11 @@ p.sub{margin:12px auto 26px;font-size:15px;opacity:.9;max-width:300px;line-heigh
 .b{display:flex;align-items:center;justify-content:center;gap:10px;min-height:58px;padding:14px 20px;border-radius:40px;margin-bottom:14px;text-decoration:none;font-size:16.5px;letter-spacing:.02em;color:#003b44;background:#fffaf2;box-shadow:0 6px 16px rgba(0,0,0,.15);transition:transform .15s;animation:rise .6s ease-out both}
 .b:active{transform:scale(.97)}
 .b.gold{background:linear-gradient(135deg,#f2d48a,#d9a640 50%,#a87a24);font-weight:500}
-.b.wa{background:#1fa855;color:#fff}
-.b.lan{background:#f07a1a;color:#fff}
+.b.wa{background:#003b44;color:#fffaf2;border:1.5px solid #e0b04a}
+.b.lan{background:transparent;color:#f2d48a;border:1.5px solid #e0b04a;box-shadow:none}
 .b svg{width:20px;height:20px}
 .b:nth-of-type(1){animation-delay:0ms}.b:nth-of-type(2){animation-delay:70ms}.b:nth-of-type(3){animation-delay:140ms}.b:nth-of-type(4){animation-delay:210ms}.b:nth-of-type(5){animation-delay:280ms}.b:nth-of-type(6){animation-delay:350ms}
+.addr{display:flex;gap:12px;align-items:flex-start;text-align:left;margin:6px 0 4px;padding:16px 18px;border:1px solid rgba(224,176,74,.5);border-radius:18px;color:#fffaf2;text-decoration:none;background:rgba(0,0,0,.12)}.addr svg{width:22px;height:22px;flex:none;color:#e0b04a;margin-top:2px}.addr b{display:block;color:#f2d48a;font-weight:500}.addr span{font-size:14.5px;line-height:1.45}.addr i{display:block;font-style:normal;font-size:12.5px;color:#f2d48a;text-decoration:underline;margin-top:4px}
 .others{display:flex;flex-direction:column;gap:8px;margin-top:20px}
 .o{display:inline-flex;align-items:center;justify-content:center;gap:8px;color:#f2d48a;text-decoration:none;font-size:14px}
 .o svg{width:18px;height:18px}
@@ -30,7 +37,7 @@ footer a{color:#fff}
 @keyframes rise{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
 @keyframes pop{from{opacity:0;transform:scale(.85)}to{opacity:1;transform:none}}
 </style></head>
-<body><main>
+<body><div class="hero"><img src="../foto-loja.webp" alt="Summerlan Beachwear"></div><main>
 <div class="av"><img src="../logo.webp" alt="Summerlan" width="640" height="509"></div>
 <h1>@summerlanbeachwear_balsas</h1><div class="tag">SUMMERLAN BEACHWEAR</div>
 <p class="sub">Moda praia em Balsas/MA ☀</p>
@@ -40,6 +47,7 @@ footer a{color:#fff}
 <a class="b " href="https://wa.me/5599991406769?text=Ol%C3%A1%21%20Quero%20fazer%20uma%20troca." target="_blank" rel="noopener">Trocas</a>
 <a class="b " href="https://wa.me/5599991406769?text=Ol%C3%A1%21%20Tenho%20uma%20d%C3%BAvida%20sobre%20tamanho." target="_blank" rel="noopener">Dúvidas de tamanho</a>
 <a class="b lan" href="https://wa.me/5563981287349?text=Ol%C3%A1%21%20Vim%20pela%20Summerlan%20e%20quero%20uma%20cota%C3%A7%C3%A3o%20de%20viagem." target="_blank" rel="noopener">Vai viajar? Conheça a Lantur</a>
+<a class="addr" href="https://www.google.com/maps/search/?api=1&query=Rua%20Coronel%20Silva%20Neto%201030%20Centro%20Balsas%20MA" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg><span><b>Loja Balsas/MA</b>Rua Coronel Silva Neto, 1030, Centro<i>Ver no mapa</i></span></a>
 <div class="others"><a class="o" href="https://instagram.com/summerlan_beachwear" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg><span>@summerlan_beachwear</span></a><a class="o" href="https://instagram.com/summerlan_fitnesswear" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg><span>@summerlan_fitnesswear</span></a></div>
 <footer><a href="https://summerlanbeachwear.com.br">summerlanbeachwear.com.br</a></footer>
 </main></body></html>
