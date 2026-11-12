@@ -1,0 +1,75 @@
+{
+ "atualizado": null,
+ "config": {
+  "pctCredito": 10,
+  "maxParcelas": 3,
+  "categorias": [
+   {
+    "id": "biquini",
+    "nome": "Biquíni"
+   },
+   {
+    "id": "maio",
+    "nome": "Maiô"
+   },
+   {
+    "id": "calca",
+    "nome": "Calça"
+   },
+   {
+    "id": "short",
+    "nome": "Short"
+   },
+   {
+    "id": "saida",
+    "nome": "Saída de banho"
+   },
+   {
+    "id": "fitness",
+    "nome": "Moda Fitness"
+   },
+   {
+    "id": "casual",
+    "nome": "Moda Casual"
+   },
+   {
+    "id": "masculino",
+    "nome": "Masculino"
+   },
+   {
+    "id": "chapeu",
+    "nome": "Chapéu"
+   },
+   {
+    "id": "bolsa",
+    "nome": "Bolsa"
+   },
+   {
+    "id": "oculos",
+    "nome": "Óculos"
+   },
+   {
+    "id": "acessorios",
+    "nome": "Acessórios"
+   },
+   {
+    "id": "perfumes",
+    "nome": "Perfumes"
+   }
+  ],
+  "lojas": [
+   {
+    "id": "l1",
+    "nome": "Loja PALMAS",
+    "whatsapp": "63992137674"
+   },
+   {
+    "id": "l2",
+    "nome": "Loja BALSAS",
+    "whatsapp": "99991406769"
+   }
+  ]
+ },
+ "produtos": [],
+ "estoque": []
+}
