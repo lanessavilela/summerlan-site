@@ -10,17 +10,17 @@ body{font-family:'Jost',sans-serif;min-height:100vh;color:#fff;background-color:
 background-image:linear-gradient(180deg,#005864 0%,#005864 40%,#003f48 100%);
 display:flex;flex-direction:column;align-items:center;padding:0 0 calc(40px + env(safe-area-inset-bottom))}
 body::before{content:"";position:fixed;inset:-20px;background:url(../mark-tile.webp) repeat;background-size:200px 200px;opacity:.13;filter:blur(1.6px);pointer-events:none;z-index:0}
-main{width:100%;max-width:460px;padding:0 18px;text-align:center;position:relative;z-index:1;margin-top:-74px}
-.hero{position:relative;width:100%;max-width:520px;height:min(52vh,460px);overflow:hidden;z-index:1}
-.hero img{width:100%;height:100%;object-fit:cover;object-position:55% 0%;animation:zoom 14s ease-out both}
+main{width:100%;max-width:460px;padding:0 18px;text-align:center;position:relative;z-index:1;margin-top:-56px}
+.hero{position:relative;width:100%;max-width:520px;height:min(26vh,210px);overflow:hidden;z-index:1}
+.hero img{width:100%;height:100%;object-fit:cover;object-position:58% 10%;animation:zoom 14s ease-out both}
 .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,88,100,0) 45%,rgba(0,88,100,.6) 78%,#005864 100%)}
 @keyframes zoom{from{transform:scale(1.08)}to{transform:scale(1)}}
 @media(min-width:521px){.hero{border-radius:0 0 28px 28px;margin-top:0}}
-.av{width:118px;height:118px;border-radius:50%;margin:0 auto;background:radial-gradient(circle at 30% 25%,#0a7482,#004a55);border:3px solid #e0b04a;box-shadow:0 10px 30px rgba(0,0,0,.25);display:grid;place-items:center;overflow:hidden;animation:pop .7s ease-out both}
+.av{width:100px;height:100px;border-radius:50%;margin:0 auto;background:radial-gradient(circle at 30% 25%,#0a7482,#004a55);border:3px solid #e0b04a;box-shadow:0 10px 30px rgba(0,0,0,.25);display:grid;place-items:center;overflow:hidden;animation:pop .7s ease-out both}
 .av img{width:78%;height:auto}
 h1{font-family:'Jost';font-weight:500;font-size:22px;margin-top:16px;letter-spacing:.02em}
 .tag{font-size:11px;letter-spacing:.42em;color:#f2d48a;margin-top:4px}
-p.sub{margin:12px auto 26px;font-size:15px;opacity:.9;max-width:300px;line-height:1.5}
+p.sub{margin:8px auto 18px;font-size:15px;opacity:.9;max-width:300px;line-height:1.5}
 .b{display:flex;align-items:center;justify-content:center;gap:10px;min-height:58px;padding:14px 20px;border-radius:40px;margin-bottom:14px;text-decoration:none;font-size:16.5px;letter-spacing:.02em;color:#003b44;background:#fffaf2;box-shadow:0 6px 16px rgba(0,0,0,.15);transition:transform .15s;animation:rise .6s ease-out both}
 .b:active{transform:scale(.97)}
 .b.gold{background:linear-gradient(135deg,#f2d48a,#d9a640 50%,#a87a24);font-weight:500}
