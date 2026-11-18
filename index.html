@@ -466,7 +466,21 @@ async function carregar(){
   renderSkeleton();
   try {
     let d = null;
-    if (API) { try { const r = await fetch(API + "/api/vitrine", {cache:"no-store"}); if (r.ok) d = await r.json(); } catch {} }
+    // Mostra na hora a última vitrine boa salva neste aparelho (se houver)
+    let salvo = null; try { salvo = JSON.parse(localStorage.getItem("sl_vitrine") || "null"); } catch {}
+    if (salvo && (salvo.produtos || []).length) { aplicar(salvo); renderTudo(); }
+    // O servidor do estoque (Render grátis) "dorme" e leva até ~1 min para acordar: tenta de novo antes de desistir
+    if (API) {
+      for (let i = 0; i < 7 && !d; i++) {
+        try {
+          const r = await fetch(API + "/api/vitrine", {cache:"no-store"});
+          if (r.ok) { const j = await r.json(); if ((j.produtos || []).length) d = j; }
+        } catch {}
+        if (!d) { if (!salvo) mostrarAcordando(i); await new Promise(ok => setTimeout(ok, 6000)); }
+      }
+      if (d) { try { localStorage.setItem("sl_vitrine", JSON.stringify(d)); } catch {} }
+      else if (salvo && (salvo.produtos || []).length) d = salvo;
+    }
     if (!d) { const r = await fetch("catalogo.json?v=" + Date.now(), {cache:"no-store"}); if (!r.ok) throw new Error("http " + r.status); d = await r.json(); }
     if (!(d.produtos || []).length && window.SUMMERLAN_DEMO) throw new Error("vazio");
     aplicar(d);
@@ -475,6 +489,10 @@ async function carregar(){
     else { S.ok = false; renderTudo(); return; }
   }
   renderTudo();
+}
+function mostrarAcordando(i){
+  const st = document.querySelector("#state");
+  if (st) st.innerHTML = `<div class="state"><b>Carregando as peças…</b>Estamos buscando o estoque atualizado das lojas. Leva só alguns segundos.</div>`;
 }
 function aplicar(d){
   const c = d.config || {};
